@@ -1,3 +1,3 @@
 # elasticsearch-process
 
-Add and Delete indexes from list to the elastic search 
+list records from elastic index by page in order to pagination
