@@ -1,0 +1,41 @@
+{
+"query": {
+    "bool": {
+      "must": [
+        {
+          "bool": {
+            "should": [{
+                "multi_match": {
+                  "query": "",
+                  "fields": [
+                    "title",
+                    "authors",
+                    "summary"
+                  ],
+                  "slop": 5,
+                  "type": "most_fields",
+                  "fuzziness": "AUTO",
+                  "boost": 1
+                }
+              },
+              {
+                "multi_match": {
+                  "query": "",
+                  "fields": [
+                    "title^5",
+                    "authors^9",
+                    "summary^2"
+                  ],
+                  "slop": 2,
+                  "type": "phrase",
+                  "boost": 5
+                }
+            }]
+          }
+        }
+      ]
+    }
+  },
+  "min_score": 2,
+  "size": 10
+}
